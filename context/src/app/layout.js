@@ -2,6 +2,8 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import { UserProvider } from "@/contexts/UserContext";
 import { ThemeProvider } from "@/contexts/ThemeProvider";
+import { CookieProvider } from "@/contexts/CookieContext";
+import { UpgradeProvider } from "@/contexts/UpgradeContext";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -15,7 +17,11 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <UserProvider>
       <ThemeProvider>
+      <CookieProvider>
+        <UpgradeProvider>
       <body className={inter.className}>{children}</body>
+      </UpgradeProvider>
+      </CookieProvider>
       </ThemeProvider>
       </UserProvider>
     </html>
